@@ -1,3 +1,18 @@
 // Place all the styles related to the posts controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+
+#posts-home{
+	
+	display:flex;
+	justify-content:space-evenly;
+padding-top:20px;
+	.deewar{
+	width:50%;
+border-right: 1px dashed blue;
+border-left: 1px dashed blue;
+	
+	}
+
+}

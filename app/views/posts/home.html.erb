@@ -1,27 +1,45 @@
-<main>
+<main id="posts-home">
 	<div> GROUP LINKS</div>
 
 <div>
 	<div>
 		<% if user_signed_in?%>
 	<%=form_for @post do |f|%>
-	<%=f.label:content%>
-<%=f.text_area:content%>
-<%=f.submit%>
-<% end%>
-<%end%>
+	 <%=f.label:content%>
+     <%=f.text_area:content%>
+    <%=f.submit%>
+   <% end%>
+   <%end%>
 </div>
+
 <div>
 	<ul>
 		<% @posts.reverse.each do |p|%>
-		
-		
+		<li>
+
+		<div>
 			<p><%=p.content%></p>
 		<p><%=p.user.email%></p>
 
 <% if user_signed_in? && p.user_id==current_user.id%>
 <p><%= link_to 'delete', destroy_post_path(p),method: :delete%></p>
 <% end%>
+<% if user_signed_in?%>
+<p>
+	<sub>
+   <%=p.likes.length%>
+   &nbsp	
+<%=link_to p.like_status_string(current_user.id), toggle_like_path(p.id), method: :post%>
+
+</sub>
+</p>
+<%else%>
+<sub>
+	
+<%= p.likes.length%>Likes
+
+</sub>
+<%end%>
 <div>
 			<h5>ADD COMMENT</h5>
 			<% if user_signed_in?%>
@@ -45,19 +63,20 @@
 </li>
 
 <%end%>
-</ul>
-</div>
 
+</ul>
+
+</div>
+</div>
+</li>
 <%end%>
 
 	</ul>
 
 
 </div>
-FRIENDS
+
 </div>
 
-<div></div>
-
-
+<div>FRIENDS</div>
 </main>
