@@ -14,14 +14,44 @@
 <div>
 	<ul>
 		<% @posts.reverse.each do |p|%>
-		<p><%=p.content%></p>
+		
+		
+			<p><%=p.content%></p>
 		<p><%=p.user.email%></p>
 
 <% if user_signed_in? && p.user_id==current_user.id%>
 <p><%= link_to 'delete', destroy_post_path(p),method: :delete%></p>
+<% end%>
+<div>
+			<h5>ADD COMMENT</h5>
+			<% if user_signed_in?%>
+		<%=form_for @comment do |f|%>
+		<%=f.label:content%>
+	<%=f.text_area:content%>
+	<%=f.hidden_field :post_id, value: p.id%> 
+	<%=f.submit%>
+	<% end%>
+	<%end%>
+<ul>
+	<% p.comments.reverse.each do |comment|%>
+<li>
+	<p><%=comment.content%>
+		<sub><%=comment.user.email%></sub>
+
+	</p>
+	<% if user_signed_in? && current_user.id==comment.user_id%>
+	<p><%= link_to 'delete', destroy_comments_path(comment),method: :delete%></p>
+	<% end%>
+</li>
+
 <%end%>
+</ul>
+</div>
+
 <%end%>
+
 	</ul>
+
 
 </div>
 FRIENDS

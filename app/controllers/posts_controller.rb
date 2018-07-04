@@ -5,6 +5,7 @@ before_action :set_post, only: [:destroy]
   def home
   @post=Post.new
   @posts=Post.all
+  @comment=Comment.new
   end
 
   def create
