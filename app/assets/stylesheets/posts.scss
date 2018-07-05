@@ -8,11 +8,39 @@
 	display:flex;
 	justify-content:space-evenly;
 padding-top:20px;
-	.deewar{
-	width:50%;
-border-right: 1px dashed blue;
-border-left: 1px dashed blue;
-	
+.group{
+p:first-child{
+	color: #02b512;
+	    font-family: sans;
+	    text-shadow: 1px 1px 1px lightgrey;
+	    font-size: 22px;
+}
+
+}
+.friends{
+	p:first-child{
+		color: #02b512;
+		    font-family: sans;
+		    text-shadow: 1px 1px 1px lightgrey;
+		    font-size: 22px;
 	}
+}
+form:first-child{
+
+	display: flex;
+	    flex-direction: column;
+	    align-items: flex-start;
+	    font-family: sans-serif;
+}
+#box{    box-shadow: 5px 5px 7px 6px #a54d4d;
+ol{
+	font-family: sans-serif;
+}
+a{
+	text-decoration: none;
+	    background-color: whitesmoke;
+	    box-shadow: 1px 1px 1px 1px;
+}
+}
 
 }

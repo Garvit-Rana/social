@@ -1,5 +1,5 @@
 <main id="posts-home">
-	<div> GROUP LINKS</div>
+	<div class="group"><p> GROUP LINKS</p></div>
 
 <div>
 	<div>
@@ -12,8 +12,8 @@
    <%end%>
 </div>
 
-<div>
-	<ul>
+<div id="box">
+	<ol>
 		<% @posts.reverse.each do |p|%>
 		<li>
 
@@ -36,7 +36,7 @@
 <%else%>
 <sub>
 	
-<%= p.likes.length%>Likes
+<%= p.likes.length%> &nbsp Likes
 
 </sub>
 <%end%>
@@ -71,12 +71,12 @@
 </li>
 <%end%>
 
-	</ul>
+	</ol>
 
 
 </div>
 
 </div>
 
-<div>FRIENDS</div>
+<div class="friends"><p>FRIENDS</p></div>
 </main>
