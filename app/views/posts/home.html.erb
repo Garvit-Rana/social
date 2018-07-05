@@ -1,8 +1,8 @@
 <main id="posts-home">
 	<div class="group"><p> GROUP LINKS</p></div>
 
-<div>
-	<div>
+<div class="basic">
+	<div id="text">
 		<% if user_signed_in?%>
 	<%=form_for @post do |f|%>
 	 <%=f.label:content%>
@@ -18,12 +18,13 @@
 		<li>
 
 		<div>
-			<p><%=p.content%></p>
+			<%=p.content%> &nbsp <% if user_signed_in? && p.user_id==current_user.id%>
+<%= link_to 'delete', destroy_post_path(p),method: :delete%>
+<% end%>
 		<p><%=p.user.email%></p>
 
-<% if user_signed_in? && p.user_id==current_user.id%>
-<p><%= link_to 'delete', destroy_post_path(p),method: :delete%></p>
-<% end%>
+
+
 <% if user_signed_in?%>
 <p>
 	<sub>
@@ -40,7 +41,7 @@
 
 </sub>
 <%end%>
-<div>
+<div id="com">
 			<h5>ADD COMMENT</h5>
 			<% if user_signed_in?%>
 		<%=form_for @comment do |f|%>
