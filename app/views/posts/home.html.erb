@@ -2,8 +2,10 @@
 	<div class="group"><p> GROUP LINKS</p></div>
 
 <div class="basic">
-	<div id="text">
+	
+
 		<% if user_signed_in?%>
+	<div id="text">
 	<%=form_for @post do |f|%>
 	 <%=f.label:content%>
      <%=f.text_area:content%>
@@ -18,7 +20,7 @@
 		<li>
 
 		<div>
-			<%=p.content%> &nbsp <% if user_signed_in? && p.user_id==current_user.id%>
+			<div id="gg"><%=p.content%> </div>&nbsp <% if user_signed_in? && p.user_id==current_user.id%>
 <%= link_to 'delete', destroy_post_path(p),method: :delete%>
 <% end%>
 		<p><%=p.user.email%></p>
@@ -55,6 +57,7 @@
 	<% p.comments.reverse.each do |comment|%>
 <li>
 	<p><%=comment.content%>
+		&nbsp
 		<sub><%=comment.user.email%></sub>
 
 	</p>
