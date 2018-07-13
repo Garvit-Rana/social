@@ -1,0 +1,3 @@
+var commentlist=$('#post-comment-list-<%= @new_comment.post_id%>');
+var text=$("<%= escape_javascript render 'comments/comment', comment:@new_comment %>")
+commentlist.prepend(text);

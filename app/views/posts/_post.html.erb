@@ -1,0 +1,32 @@
+		<li id="post-<%=p.id%>">
+
+		<div>
+			<div id="gg"><%=p.content%> </div>&nbsp <% if user_signed_in? && p.user_id==current_user.id%>
+<%= link_to 'delete', destroy_post_path(p),method: :delete,remote: true%>
+<% end%>
+		<p><%=p.user.email%></p>
+
+
+
+<% if user_signed_in?%>
+<p>
+	<sub>
+   <%=p.likes.length%>
+   &nbsp	
+<%=link_to p.like_status_string(current_user.id), toggle_like_path(p.id), method: :post%>
+
+</sub>
+</p>
+<%else%>
+<sub>
+	
+<%= p.likes.length%> &nbsp Likes
+
+</sub>
+<%end%>
+<div>
+<%= render 'comments/post_comment',p:p %>
+</div>
+</div>
+</li>
+

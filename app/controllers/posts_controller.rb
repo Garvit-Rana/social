@@ -17,7 +17,7 @@ redirect_to action: "home"
  
 @post.destroy
 
-redirect_to action: "home"
+
 
   end
 private
