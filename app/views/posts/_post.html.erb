@@ -8,22 +8,26 @@
 
 
 
-<% if user_signed_in?%>
-<p>
-	<sub>
-   <%=p.likes.length%>
-   &nbsp	
-<%=link_to p.like_status_string(current_user.id), toggle_like_path(p.id), method: :post%>
+		<% if user_signed_in?%>
+		<p>
+			<sub id="on-<%=p.id%>-likes">
+		   <%= render 'like_create', p:p %> 
+		</sub>
+		</p>
+		<%else%>
+		<sub>
+			
+		<%= p.likes.length%> 
+		&nbsp 
+		Likes
 
-</sub>
-</p>
-<%else%>
-<sub>
-	
-<%= p.likes.length%> &nbsp Likes
+		</sub>
+		
+		<%end%>
 
-</sub>
-<%end%>
+
+
+
 <div>
 <%= render 'comments/post_comment',p:p %>
 </div>

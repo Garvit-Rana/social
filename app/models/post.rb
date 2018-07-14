@@ -14,9 +14,9 @@ def user_can_like(user_id)
 end
 def like_status_string(user_id)
 	if self.user_can_like(user_id)
-		return 'Like'
+		return '<i class="fa fa-thumbs-up "></i>'.html_safe
 	else
-		return 'Unlike'
+		return '<i class="fa fa-thumbs-down"></i>'.html_safe
 	end
 
 	

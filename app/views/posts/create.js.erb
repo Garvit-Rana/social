@@ -3,3 +3,10 @@ console.log("hello");
 var a=$("<%= escape_javascript render 'post', p:@post%>");
 
 $('#list').prepend(a);
+new Noty({
+type: 'success',
+text: 'New Post Created',
+layout: 'topRight',
+theme: 'bootstrap-v3',
+timeout: 2000
+}).show();

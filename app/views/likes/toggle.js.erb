@@ -1,0 +1,11 @@
+console.log("likes");
+var newlike=$("<%= escape_javascript render 'posts/like_create',p: @post %>");
+$('#on-<%=@post.id%>-likes').html(newlike);
+new Noty({
+	text: 'YOU LIKED THE POST',
+	theme: 'bootstrap-v3',
+	type: 'success',
+layout: 'topRight',
+timeout: 2000
+
+}).show();

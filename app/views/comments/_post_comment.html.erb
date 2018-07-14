@@ -1,13 +1,14 @@
 <div id="com">
 			<h5>ADD COMMENT</h5>
 			<% if user_signed_in?%>
-		<%=form_for @comment,remote:true do |f|%>
+		<%=form_for @comment,remote:true do |f| %>
 		<%=f.label:content%>
 	<%=f.text_area:content%>
 	<%=f.hidden_field :post_id, value: p.id%> 
 	<%=f.submit%>
 	<% end%>
 	<%end%>
+
 <ul id="post-comment-list-<%=p.id%>">
 	<% p.comments.reverse.each do |c|%>
 <%= render 'comments/comment', comment:c %>

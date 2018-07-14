@@ -1,3 +1,9 @@
 console.log("delete");
-
 $('#post-<%=@post_id%>').remove();
+new Noty({
+type: 'alert',
+text: 'Your Post Has Been Deleted',
+theme: 'bootstrap-v3',
+layout: 'topRight',
+timeout: 2000
+}).show();
