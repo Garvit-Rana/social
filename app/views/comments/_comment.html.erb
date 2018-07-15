@@ -1,10 +1,10 @@
-<li>
+<li id="comment-<%=comment.id %>">
 	<p><%=comment.content%>
 		&nbsp
 		<sub><%=comment.user.email%></sub>
 
 	</p>
 	<% if user_signed_in? && current_user.id==comment.user_id%>
-	<p><%= link_to 'delete', destroy_comments_path(comment),method: :delete%></p>
+	<p><%= link_to 'delete', destroy_comments_path(comment),method: :delete, remote:true%></p>
 	<% end%>
 </li>

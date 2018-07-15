@@ -1,0 +1,9 @@
+console.log("in delete");
+$('#comment-<%=@k%>').remove();
+$('#comment_content').val("");
+new Noty({
+type: 'success',
+theme: 'bootstrap-v3',
+text: 'Comment has been deleted',
+layout: 'topRight'
+}).show();

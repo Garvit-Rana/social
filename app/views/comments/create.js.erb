@@ -2,6 +2,7 @@ console.log("cmmnt");
 var commentlist=$('#post-comment-list-<%= @new_comment.post_id%>');
 var text=$("<%= escape_javascript render 'comments/comment', comment:@new_comment %>")
 commentlist.prepend(text);
+$('#comment_content').val("");
 new Noty({
 type: 'success',
 text: 'New Comment Created',

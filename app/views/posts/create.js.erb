@@ -3,6 +3,7 @@ console.log("hello");
 var a=$("<%= escape_javascript render 'post', p:@post%>");
 
 $('#list').prepend(a);
+$('#post_content').val("");
 new Noty({
 type: 'success',
 text: 'New Post Created',
