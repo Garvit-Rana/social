@@ -4,7 +4,9 @@ class CommentsController < ApplicationController
   before_action :authorize, only: [:destroy]
   def create
     @new_comment=Comment.create(content:params[:comment][:content], user_id:current_user.id, post_id:params[:comment][:post_id])
-  
+  UserMailer.new_comment(@new_comment.id).deliver_now
+
+
   end
 
   def destroy

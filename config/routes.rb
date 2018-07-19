@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+  get 'users/profile/:id',to: 'users#profile'
+
+  post 'users/update/:id',to: 'users#upload',as: :users_upload
+
   post 'likes/toggle/:post_id',to: 'likes#toggle',as: :toggle_like
 
   post 'comments/create',as: :comments 
