@@ -6,6 +6,8 @@ before_action :set_post, only: [:destroy]
   @post=Post.new
   @posts=Post.all
   @comment=Comment.new
+  @arr=User.all.order("id").pluck(:email)
+  @arr2=User.all.order("id").pluck(:id)
   end
 
   def create

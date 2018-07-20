@@ -26,5 +26,26 @@
 
 </div>
 
-<div class="friends"><p>FRIENDS</p></div>
+<div class="friends">
+<div>
+	FRIENDS
+</div>
+<div>
+<input id="autocmp" type="text" placeholder="Search...">
+</div>
+<script type="text/javascript">
+	var user=<%="#{@arr}".html_safe%>;
+	var user_id=<%="#{@arr2}".html_safe%>;
+	$( "#autocmp" ).autocomplete({
+	     source: user,
+	     select: function( event, ui ) {
+	     	console.log(event);
+            window.location = '/users/profile/' + user_id[user.indexOf(ui.item.value)];
+
+
+	     }
+	   });	
+</script>
+
+</div>
 </main>
