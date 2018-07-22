@@ -34,7 +34,10 @@
 <input id="autocmp" type="text" placeholder="Search...">
 </div>
 <script type="text/javascript">
+	
+
 	var user=<%="#{@arr}".html_safe%>;
+	console.log(user);
 	var user_id=<%="#{@arr2}".html_safe%>;
 	$( "#autocmp" ).autocomplete({
 	     source: user,

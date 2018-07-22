@@ -1,4 +1,15 @@
 Rails.application.routes.draw do
+ 
+namespace :api do
+namespace :v1 do
+get 'post/home',to: 'posts#home'
+post 'user/sign_in',to: 'users#sign_in'
+post 'posts/create',to: 'posts#create'
+end
+namespace :v2 do
+  get 'post/home',to: 'posts#home'
+end
+end
   get 'users/profile/:id',to: 'users#profile'
 
   post 'users/update/:id',to: 'users#upload',as: :users_upload
@@ -10,7 +21,7 @@ Rails.application.routes.draw do
   delete 'comments/:id',to: 'comments#destroy',as: :destroy_comments
 
   root 'posts#home'
-
+get 'post/home',to: 'posts#home'
   post 'posts/create',as: :posts
 
   delete 'posts/:id', to: 'posts#destroy',as: :destroy_post

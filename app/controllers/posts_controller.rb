@@ -8,6 +8,22 @@ before_action :set_post, only: [:destroy]
   @comment=Comment.new
   @arr=User.all.order("id").pluck(:email)
   @arr2=User.all.order("id").pluck(:id)
+
+ 
+
+  respond_to do |format|
+format.html
+format.json{
+
+ if params[:details]=="true"
+  return render json: @posts,each_serializer:PostDetailSerializer
+else
+  return render json: @posts
+end
+
+}
+ end
+ 
   end
 
   def create
