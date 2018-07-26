@@ -11,11 +11,13 @@
   <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
   <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.css">
   <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.js"></script>
-  </head>
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/wow/1.1.2/wow.min.js"></script>
+  <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.0/animate.min.css">
+ 
   
   <body>
     <div id="common-header">
-    	<div class="logo">
+    	<div class="logo wow infinite bounce" data-wow-duration="2s">
     		<img width="50" src="http://www.redditstatic.com/icon.png">
     	</div>
 <div class="auth-info-links">
@@ -33,5 +35,9 @@
 
     <%= yield %>
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/noty/3.1.4/noty.min.js"></script>
+  <script>
+               new WOW().init();
+               </script>
+  </head>
   </body>
 </html>

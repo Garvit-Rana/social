@@ -9,6 +9,10 @@ end
 namespace :v2 do
   get 'post/home',to: 'posts#home'
 end
+namespace :v3 do
+get 'posts/index',to: 'posts#index'
+post 'sign_in',to: 'posts#sign_in'
+  end
 end
   get 'users/profile/:id',to: 'users#profile'
 

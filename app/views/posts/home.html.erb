@@ -1,54 +1,54 @@
 <main id="posts-home">
-	<div class="group"><p> GROUP LINKS</p></div>
+	<div class="group "><p class="wow infinite rubberBand"> GROUP LINKS</p></div>
 
-<div class="basic">
-	
+	<div class="basic">
+		
 
 		<% if user_signed_in?%>
-	<div id="text">
-	<%=form_for @post,remote:true do |f|%>
-	 <%=f.label:content%>
-     <%=f.text_area:content%>
-    <%=f.submit%>
-   <% end%>
-   <%end%>
-</div>
+		<div id="text">
+			<%=form_for @post,remote:true do |f|%>
+			<%=f.label:content%>
+			<%=f.text_area:content%>
+			<%=f.submit%>
+			<% end%>
+			<%end%>
+		</div>
 
-<div id="box">
-	<ol id="list">
-		<% @posts.reverse.each do |p|%>
-		<%= render 'post' ,p: p %>
-<%end%>
-	</ol>
-
-
-</div>
-
-</div>
-
-<div class="friends">
-<div>
-	FRIENDS
-</div>
-<div>
-<input id="autocmp" type="text" placeholder="Search...">
-</div>
-<script type="text/javascript">
-	
-
-	var user=<%="#{@arr}".html_safe%>;
-	console.log(user);
-	var user_id=<%="#{@arr2}".html_safe%>;
-	$( "#autocmp" ).autocomplete({
-	     source: user,
-	     select: function( event, ui ) {
-	     	console.log(event);
-            window.location = '/users/profile/' + user_id[user.indexOf(ui.item.value)];
+		<div id="box" >
+			<ol id="list">
+				<% @posts.reverse.each do |p|%>
+				<%= render 'post' ,p: p %>
+				<%end%>
+			</ol>
 
 
-	     }
-	   });	
-</script>
+		</div>
 
-</div>
+	</div>
+
+	<div class="friends">
+		<div>
+			FRIENDS
+		</div>
+		<div>
+			<input id="autocmp" type="text" placeholder="Search...">
+		</div>
+		<script type="text/javascript">
+			
+
+			var user=<%="#{@arr}".html_safe%>;
+			console.log(user);
+			var user_id=<%="#{@arr2}".html_safe%>;
+			$( "#autocmp" ).autocomplete({
+				source: user,
+				select: function( event, ui ) {
+					console.log(event);
+					window.location = '/users/profile/' + user_id[user.indexOf(ui.item.value)];
+
+
+				}
+			});	
+		</script>
+
+	</div>
 </main>

@@ -1,35 +1,38 @@
-		<li id="post-<%=p.id%>">
+		<li id="post-<%=p.id%>" class="wow slideInLeft">
 
-		<div>
-			<div id="gg"><%=p.content%> </div>&nbsp <% if user_signed_in? && p.user_id==current_user.id%>
-<%= link_to 'delete', destroy_post_path(p),method: :delete,remote: true%>
-<% end%>
-
-
-
-		<% if user_signed_in?%>
-		<p>
-			<sub id="on-<%=p.id%>-likes">
-		   <%= render 'like_create', p:p %> 
-		</sub>
-		</p>
-		<%else%>
-		<sub>
-			
-		<%= p.likes.length%> 
-		&nbsp 
-		Likes
-
-		</sub>
-		
-		<%end%>
+			<div>
+				<div id="gg"><%=p.content%> 
+				</div>
+				&nbsp 
+				<% if user_signed_in? && p.user_id==current_user.id%>
+				<%= link_to 'delete', destroy_post_path(p),method: :delete,remote: true%>
+				<% end%>
 
 
 
+				<% if user_signed_in?%>
+				<p>
+					<sub id="on-<%=p.id%>-likes">
+						<%= render 'like_create', p:p %> 
+					</sub>
+				</p>
+				<%else%>
+				<sub>
 
-<div>
-<%= render 'comments/post_comment',p:p %>
-</div>
-</div>
-</li>
+					<%= p.likes.length%> 
+					&nbsp 
+					Likes
+
+				</sub>
+
+				<%end%>
+
+
+
+
+				<div>
+					<%= render 'comments/post_comment',p:p %>
+				</div>
+			</div>
+		</li>
 
