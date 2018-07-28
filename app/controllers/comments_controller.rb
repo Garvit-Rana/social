@@ -4,22 +4,25 @@ class CommentsController < ApplicationController
   before_action :authorize, only: [:destroy]
   def create
     @new_comment=Comment.create(content:params[:comment][:content], user_id:current_user.id, post_id:params[:comment][:post_id])
-  UserMailer.new_comment(@new_comment.id).deliver_now
+           #UserMailer.new_comment(@new_comment.id).deliver_now
 
+            #NewCommentEmailWorker.perform(@new_comment.id)
 
-  end
+Resque.enqueue(NewCommentEmailWorker,@new_comment.id)
 
-  def destroy
-  	@k=@comment.id
-    @comment.destroy
-  	  end
-  private
-  def set_comment
+end
+
+def destroy
+ @k=@comment.id
+ @comment.destroy
+end
+private
+def set_comment
   @comment=Comment.find(params[:id])
-  end
-  def authorize
+end
+def authorize
   if @comment.user_id!=current_user.id
-  redirect_to root_path
+    redirect_to root_path
   end
-  end
+end
 end
