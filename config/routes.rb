@@ -23,6 +23,7 @@ post 'sign_in',to: 'posts#sign_in'
   end
 end
   get 'users/profile/:id',to: 'users#profile'
+  get 'users/search',to: 'users#user_search'
 
   post 'users/update/:id',to: 'users#upload',as: :users_upload
 

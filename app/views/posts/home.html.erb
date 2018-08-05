@@ -40,10 +40,10 @@
 			console.log(user);
 			var user_id=<%="#{@arr2}".html_safe%>;
 			$( "#autocmp" ).autocomplete({
-				source: user,
+				source: '/users/search',
 				select: function( event, ui ) {
-					console.log(event);
-					window.location = '/users/profile/' + user_id[user.indexOf(ui.item.value)];
+					
+					window.location = '/users/profile/' + ui.item.id;
 
 
 				}

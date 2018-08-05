@@ -11,4 +11,19 @@ def upload
 redirect_to request.referrer
 end
 
+def user_search
+term=params[:term]
+users=User.where('email like ?',"%#{term}%")
+data=[]
+users.each do |u|
+data<<{
+id: u.id,
+label:u.email,
+value: u.email
+}
+end
+return render json:data
+
+end
+
 end

@@ -22,7 +22,7 @@ var userEmail=$('#current_user_email').html();
 if (userEmail){
 
 	var socket= io.connect('http://localhost:8000');
-    
+       
     socket.on('connect',function(){
        console.log('handshake completed connected to node');     
     //console.log(socket);
